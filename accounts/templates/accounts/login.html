@@ -1,0 +1,9 @@
+{% extends "accounts/layout.html"%}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {% bootstrap form form%}
+        {% buttons%}
+    </table>
+    <input type="submit" value="loin" />
+</form>

@@ -33,3 +33,18 @@ def post_detail(request, pk):
         "post" : post,
         "commnet_form": comment_form,
     })
+
+
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)  # NOTE: instance 인자(수정대상) 지정
+        if form.is_valid():
+            post = form.save()
+            return redirect(post)
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'instagram/post_form.html', {
+        'form': form,
+    })

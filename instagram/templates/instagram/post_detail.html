@@ -4,4 +4,9 @@
 
     {{post}}
     {{post.location}}
+    <a href="{% url 'instagram:post_new' %}" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">새로만들기</a>
+    <br>
+
+    <a href="{% url 'instagram:post_edit' post.pk %}" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">수정하기</a>
+
 {% endblock%}
